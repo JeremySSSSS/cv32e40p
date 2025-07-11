@@ -19,7 +19,7 @@
 // Contributors: Davide Schiavone, OpenHW Group <davide@openhwgroup.org>          //
 //               Yoann Pruvost, Dolphin Design <yoann.pruvost@dolphin.fr>         //
 //                                                                                //
-// Description:  Test-bench wrapper for cv32e40p_top, tracer and and rvfi_tracer  //
+// Description:  Wrapper for cv32e40p_top, tracer and and rvfi_tracer  //
 //                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -47,7 +47,7 @@
 `include "cv32e40p_rvfi_trace.sv"
 `endif
 
-module cv32e40p_tb_wrapper
+module cv32e40p_wrapper
   import cv32e40p_pkg::*;
 #(
     parameter COREV_PULP = 0, // PULP ISA Extension (incl. custom CSRs and hardware loop, excl. cv.elw)
