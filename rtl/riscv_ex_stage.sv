@@ -461,6 +461,7 @@ module riscv_ex_stage
           ) i_fpnew_bulk (
             .clk_i          ( clk                                   ),
             .rst_ni         ( rst_n                                 ),
+            .hart_id_i      ( 32'h0                                 ),
             .operands_i     ( apu_operands_i                        ),
             .rnd_mode_i     ( fpnew_pkg::roundmode_e'(fp_rnd_mode)  ),
             .op_i           ( fpnew_pkg::operation_e'(fpu_op)       ),
@@ -470,6 +471,7 @@ module riscv_ex_stage
             .int_fmt_i      ( fpnew_pkg::int_format_e'(fpu_int_fmt) ),
             .vectorial_op_i ( fpu_vec_op                            ),
             .tag_i          ( 1'b0                                  ),
+            .simd_mask_i    ( '1                                    ),
             .in_valid_i     ( apu_req                               ),
             .in_ready_o     ( FPU_ready_int                         ),
             .flush_i        ( 1'b0                                  ),
