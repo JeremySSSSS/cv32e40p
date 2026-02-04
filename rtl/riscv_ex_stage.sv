@@ -447,7 +447,7 @@ module riscv_ex_stage
                          '{default: fpnew_pkg::PARALLEL}, // NONCOMP
                          '{default: fpnew_pkg::MERGED},  // CONV
                          '{default: fpnew_pkg::DISABLED}}, // SDOTP
-            PipeConfig: fpnew_pkg::AFTER
+            PipeConfig: fpnew_pkg::DISTRIBUTED
           };
 
           //---------------
