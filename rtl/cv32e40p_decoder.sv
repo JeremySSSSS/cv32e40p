@@ -1839,6 +1839,8 @@ module cv32e40p_decoder import cv32e40p_pkg::*; import cv32e40p_apu_core_pkg::*;
               fpu_op_mod  = 1'b1;
               apu_op_o    = 2'b11;
             end
+
+            default : illegal_insn_o = 1'b1;
           endcase
 
           // check enabled formats (static)
