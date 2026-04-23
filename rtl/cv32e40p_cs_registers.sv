@@ -452,7 +452,7 @@ if(PULP_SECURE==1) begin : gen_pulp_secure_read_logic
           csr_rdata_int[ 1:0] = '0; // XLEN is fixed to 32, so XLEN/8 = 4
         end else begin
           // to check if irq_q is onehot signal
-          `ifndef VERILATOR
+          `ifndef ASSERTS_OFF
             assert final ($onehot0(irq_q)) else
             $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
           `endif
@@ -466,7 +466,7 @@ if(PULP_SECURE==1) begin : gen_pulp_secure_read_logic
           csr_rdata_int = exception_pc; // read_data is the current pc value for ra (return address)
         end else begin
           // to check if irq_q is onehot signal
-          `ifndef VERILATOR
+          `ifndef ASSERTS_OFF
             assert final ($onehot0(irq_q)) else
             $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
           `endif
@@ -703,7 +703,7 @@ end else begin : gen_no_pulp_secure_read_logic // PULP_SECURE == 0
           csr_rdata_int[ 1:0] = '0; // XLEN is fixed to 32, so XLEN/8 = 4
         end else begin
           // to check if irq_q is onehot signal
-          `ifndef VERILATOR
+          `ifndef ASSERTS_OFF
             assert final ($onehot0(irq_q)) else
             $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
           `endif
@@ -717,7 +717,7 @@ end else begin : gen_no_pulp_secure_read_logic // PULP_SECURE == 0
           csr_rdata_int = exception_pc; // read_data is the current pc value for ra (return address)
         end else begin
           // to check if irq_q is onehot signal
-          `ifndef VERILATOR
+          `ifndef ASSERTS_OFF
             assert final ($onehot0(irq_q)) else
             $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
           `endif
@@ -971,7 +971,7 @@ if(PULP_SECURE==1) begin : gen_pulp_secure_write_logic
             irq_ack_mnxti_n                      = 1'b1;
           end else begin
             // to check if irq_i is onehot
-            `ifndef VERILATOR
+            `ifndef ASSERTS_OFF
               assert final ($onehot0(irq_q)) else
               $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
             `endif
@@ -996,7 +996,7 @@ if(PULP_SECURE==1) begin : gen_pulp_secure_write_logic
             jalmnxti_pc_o[ 1:0]                  = '0;               // XLEN is fixed to 32, so XLEN/8 = 4
           end else begin
             // to check if irq_i is onehot
-            `ifndef VERILATOR
+            `ifndef ASSERTS_OFF
               assert final ($onehot0(irq_q)) else
               $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
             `endif
@@ -1356,7 +1356,7 @@ end else begin : gen_no_pulp_secure_write_logic //PULP_SECURE == 0
             irq_ack_mnxti_n                      = 1'b1;
           end else begin
             // to check if irq_i is onehot
-            `ifndef VERILATOR
+            `ifndef ASSERTS_OFF
               assert final ($onehot0(irq_q)) else
               $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
             `endif
@@ -1381,7 +1381,7 @@ end else begin : gen_no_pulp_secure_write_logic //PULP_SECURE == 0
             jalmnxti_pc_o[ 1:0]                  = '0;               // XLEN is fixed to 32, so XLEN/8 = 4
           end else begin
             // to check if irq_i is onehot
-            `ifndef VERILATOR
+            `ifndef ASSERTS_OFF
               assert final ($onehot0(irq_q)) else
               $fatal(1, "[cv32e40p] More than two bit set in irq_i (one-hot)");
             `endif
