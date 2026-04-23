@@ -255,7 +255,7 @@ module cv32e40p_alu import cv32e40p_pkg::*;
 
   assign shift_amt_norm = is_clpx_i ? {clpx_shift_ex,clpx_shift_ex} : {4{3'b000, bmask_b_i}};
 
-  assign clpx_shift_ex  = $unsigned(clpx_shift_i);
+  assign clpx_shift_ex  = clpx_shift_i;
 
   // right shifts, we let the synthesizer optimize this
   logic [63:0] shift_op_a_32;

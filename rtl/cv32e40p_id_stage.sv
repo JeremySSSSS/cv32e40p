@@ -687,7 +687,7 @@ module cv32e40p_id_stage import cv32e40p_pkg::*; import cv32e40p_apu_core_pkg::*
       OP_B_REGB_OR_FWD:  operand_b = operand_b_fw_id;
       OP_B_REGC_OR_FWD:  operand_b = operand_c_fw_id;
       OP_B_IMM:          operand_b = imm_b;
-      OP_B_BMASK:        operand_b = $unsigned(operand_b_fw_id[4:0]);
+      OP_B_BMASK:        operand_b = operand_b_fw_id[4:0];
       default:           operand_b = operand_b_fw_id;
     endcase // case (alu_op_b_mux_sel)
   end
